@@ -1,0 +1,59 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file)
+
+
+```{r}
+x = unlist(read.csv("femaleControlsPopulation.csv"))
+
+
+```
+
+```{r}
+set.seed(1)
+vect = vector("numeric")
+n = 1000
+for(i in seq(n)){
+    vect[i] = mean(sample(x, 5))
+    }
+hist(vect)
+```
+
+
+```{r}
+set.seed(1)
+
+ve = vector("numeric")
+n = 1000
+for(i in seq(n)){
+    ve[i] = mean(sample(x, 50))
+}
+
+hist(ve)
+```
+
+
+
+```{r}
+z_23 = (23 -  mean(ve))/sd(ve)
+z_23
+1 - pnorm(z_23)
+```
+
+
+
+```{r}
+z = (23 - 23.9)/0.43
+1 - pnorm(z)
+
+```
+
